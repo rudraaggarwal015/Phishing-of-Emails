@@ -1,0 +1,44 @@
+From: "GitHub Security Training" <security-training@example.com>
+To: learner@example.com
+Date: Thu, 19 Nov 2026 10:00:00 +0000
+Subject: [SIMULATION] Unusual sign-in activity detected
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+PHISHING-AWARENESS TRAINING SAMPLE
+=================================
+
+Hello,
+
+We noticed a sign-in attempt that does not match your usual activity.
+
+For this training exercise, imagine that this message asks you to review the
+activity immediately and sign in through the link below:
+
+    [SIMULATED LINK - DO NOT OPEN]
+    https://account-check.example.com/review
+
+The message uses common phishing warning signs:
+- Creates urgency by suggesting unusual account activity.
+- Encourages the recipient to follow a link.
+- Uses a generic greeting instead of identifying the recipient.
+- Uses a sender display name that may appear authoritative.
+
+IMPORTANT SAFETY NOTES
+----------------------
+This is a harmless educational sample for a phishing-detection project.
+The sender and recipient use reserved example.com addresses.
+The URL uses the reserved .example domain and is not a real sign-in page.
+There is no credential collection, tracking, attachment, or executable content.
+
+Suggested classifier label: PHISHING_SIMULATION
+Suggested risk level: HIGH (for training/demo purposes)
+
+Detection features to test:
+- Urgency language: "immediately", "unusual sign-in activity"
+- Account-security theme
+- Call to action directing the user to a link
+- Generic greeting
+- Sender display-name / domain review
+
+End of training sample.
