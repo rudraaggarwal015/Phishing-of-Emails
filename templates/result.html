@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scan result</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><header><div class="wrap"><a class="brand" href="/">MAIL<span>GUARD</span></a><span class="tag">Analysis report</span></div></header>
+<main class="wrap">
+  <section class="hero"><p class="eyebrow">SCAN COMPLETE</p><h1>Detection report</h1><p class="muted">Review the evidence below. This is a prototype assessment, not a guarantee.</p></section>
+  <section class="panel result">
+    <div class="score"><strong>{{ result.score }}</strong><span>/100</span><small>Illustrative risk score</small></div>
+    <div><span class="pill {{ result.level|lower }}">{{ result.level }} risk</span><h2>{{ result.verdict }}</h2><p class="muted">{{ result.note }}</p></div>
+  </section>
+  <section class="panel"><h2>Why it was flagged</h2><ul>{% for reason in result.reasons %}<li>{{ reason }}</li>{% endfor %}</ul></section>
+  <section class="panel"><h2>Extracted links</h2>
+    {% if result.urls %}<ul>{% for url in result.urls %}<li class="url">{{ url }}</li>{% endfor %}</ul>{% else %}<p class="muted">No URLs detected in the supplied text.</p>{% endif %}
+    <p class="footnote">Do not click suspicious links to test them. Use trusted URL reputation services or an isolated analysis environment.</p>
+  </section>
+  <a class="back" href="/">← Scan another email</a>
+</main></body></html>

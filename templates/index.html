@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email Phishing Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">MAIL<span>GUARD</span></span><span class="tag">AI-assisted phishing awareness</span></div></header>
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">EMAIL SECURITY SCANNER</p>
+    <h1>Check an email before you trust it.</h1>
+    <p class="muted">Paste email content or upload an .eml file. The starter scanner checks common phishing indicators and explains its findings.</p>
+  </section>
+  {% with messages = get_flashed_messages() %}{% if messages %}<div class="notice">{% for message in messages %}{{ message }}{% endfor %}</div>{% endif %}{% endwith %}
+  <section class="panel">
+    <h2>Scan an email</h2>
+    <form action="{{ url_for('scan') }}" method="post" enctype="multipart/form-data">
+      <label>Choose input method</label>
+      <div class="tabs">
+        <label><input type="radio" name="mode" value="text" checked onclick="toggleMode()"> Paste email</label>
+        <label><input type="radio" name="mode" value="upload" onclick="toggleMode()"> Upload file</label>
+      </div>
+      <div id="text-fields">
+        <label for="sender">Sender address (optional)</label><input id="sender" name="sender" placeholder="sender@example.com">
+        <label for="subject">Subject</label><input id="subject" name="subject" placeholder="Email subject">
+        <label for="body">Email body</label><textarea id="body" name="body" rows="8" placeholder="Paste the email content here..."></textarea>
+      </div>
+      <div id="upload-fields" class="hidden">
+        <label for="email_file">Email file (.eml or .txt)</label><input id="email_file" name="email_file" type="file" accept=".eml,.txt">
+      </div>
+      <button type="submit">Analyze email <span>→</span></button>
+    </form>
+  </section>
+  <p class="footnote">Privacy note: this local prototype processes submitted content on your computer. Do not upload confidential emails to an untrusted server.</p>
+</main>
+<script>
+function toggleMode() {
+  const mode = document.querySelector('input[name="mode"]:checked').value;
+  document.getElementById('text-fields').classList.toggle('hidden', mode !== 'text');
+  document.getElementById('upload-fields').classList.toggle('hidden', mode !== 'upload');
+}
+</script>
+</body></html>
