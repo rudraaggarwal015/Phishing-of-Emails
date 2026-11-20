@@ -22,7 +22,7 @@ A defensive educational prototype for scanning pasted email text and `.eml` / `.
 ### Windows PowerShell
 
 ```powershell
-cd phishing_detection_complete_starter
+cd Phishing of Emails
 py -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -41,7 +41,7 @@ Then open `http://127.0.0.1:5000`.
 ### macOS / Linux
 
 ```bash
-cd phishing_detection_complete_starter
+cd Phishing of Emails
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -97,7 +97,7 @@ Before publishing:
 ## Project structure
 
 ```text
-phishing_detection_complete_starter/
+Phishing of Emails/
 ├── app.py
 ├── detector.py
 ├── gmail_scan.py
